@@ -274,14 +274,14 @@ var Clustergrammer =
 	  var row_has_group = utils.has(config.network_data.row_nodes[0], 'group');//判断是否包含属性'group' 返回true
 	  var col_has_group = utils.has(config.network_data.col_nodes[0], 'group');
 
-	  config.show_dendrogram = row_has_group || col_has_group;
+	  config.show_dendrogram = row_has_group || col_has_group;//row_has_group若未被初始化 则执行col_has_group
 
 	  config.show_categories = {};
 	  config.all_cats = {};
 	  config.cat_names = {};
 
-	  var predefine_colors = false;
-	  if (config.cat_colors === null) {
+	  var predefine_colors = false;//是否预先定义颜色
+	  if (config.cat_colors === null) {//默认设置为null
 	    config.cat_colors = {};
 	    predefine_colors = false;
 	  } else {
@@ -299,11 +299,11 @@ var Clustergrammer =
 	    _.each(tmp_keys, function (d) {
 	      if (d.indexOf('cat-') >= 0) {
 	        config.show_categories[inst_rc] = true;
-	        config.all_cats[inst_rc].push(d);
+	        config.all_cats[inst_rc].push(d);//d为属性名 all_cats[row]保存cat-0 all_cats[col]保存cat-0 和cat-1
 	      }
 	    });
 
-	    if (config.show_categories[inst_rc]) {
+	    if (config.show_categories[inst_rc]) {//inst_rc为row 或者col
 
 	      if (predefine_colors === false) {
 	        config.cat_colors[inst_rc] = {};
@@ -314,25 +314,28 @@ var Clustergrammer =
 
 	        _.each(config.network_data[inst_rc + '_nodes'], function (inst_node) {
 
-	          if (inst_node[inst_cat].indexOf(super_string) > 0) {
+	          if (inst_node[inst_cat].indexOf(super_string) > 0) {//row_nodes['cat-0'] 判断是否存在 ':' 执行else
 	            tmp_super = inst_node[inst_cat].split(super_string)[0];
 	            config.cat_names[inst_rc][inst_cat] = tmp_super;
 	          } else {
-	            config.cat_names[inst_rc][inst_cat] = inst_cat;
+	            config.cat_names[inst_rc][inst_cat] = inst_cat;//inst_rc存的是row或者col inst_cat存的是cat-0
+				  //console.log(config.cat_names);
+				  //cat_names[row][cat-0]=cat-0
+				  //cat_names[col][cat-0]=cat-0 cat_names[col][cat-1]=cat-1
 	          }
 	        });
 
-	        var names_of_cat = _.uniq(_.pluck(config.network_data[inst_rc + '_nodes'], inst_cat)).sort();
-
+	        var names_of_cat = _.uniq(_.pluck(config.network_data[inst_rc + '_nodes'], inst_cat)).sort();//pluck提取属性值 uniq取唯一
+			//console.log(names_of_cat); //names_of_cat取得是cat-0和cat-1的值 rc_0_0 cc_1_1
 	        if (predefine_colors === false) {
 
 	          config.cat_colors[inst_rc][inst_cat] = {};
 
 	          _.each(names_of_cat, function (cat_tmp, i) {
+	            var inst_color = colors.get_random_color(i + num_colors);//num_colors初始化为0
 
-	            var inst_color = colors.get_random_color(i + num_colors);
-
-	            config.cat_colors[inst_rc][inst_cat][cat_tmp] = inst_color;
+	            config.cat_colors[inst_rc][inst_cat][cat_tmp] = inst_color;//cat_colors[row][cat-0][rc_0_0] 即设定一个节点对象的颜色
+				 // console.log("inst_cat "+inst_cat+" cat_tmp "+cat_tmp);
 
 	            // hack to get 'Not' categories to not be dark colored
 	            if (cat_tmp.indexOf('Not ') >= 0) {
@@ -345,13 +348,13 @@ var Clustergrammer =
 	      });
 	    }
 
-	    if (config.sim_mat) {
+	    if (config.sim_mat) {//false
 	      config.cat_colors.row = config.cat_colors.col;
 	    }
 	  });
 
-	  // check for category information
-	  if (config.show_categories.col) {
+	  // check for category information;
+	  if (config.show_categories.col) {//存在cat-时存为true
 	    // generate a dictionary of columns in each category
 	    config.cat_dict = {};
 	    col_nodes.forEach(function (d) {
@@ -421,7 +424,7 @@ var Clustergrammer =
 		};
 
 /***/ },
-/* 3 */
+/* 3 *///模块3定义颜色
 /***/ function(module, exports) {
 
 	"use strict";

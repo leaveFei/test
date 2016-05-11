@@ -34,8 +34,8 @@
       <file leaf-file-name="load_clustergram.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/load_clustergram.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
+            <state vertical-scroll-proportion="-0.36666667">
+              <caret line="66" column="27" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -44,8 +44,8 @@
       <file leaf-file-name="mult_cats.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mult_cats.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.515625">
-              <caret line="441" column="8" selection-start-line="441" selection-start-column="3" selection-end-line="441" selection-end-column="8" />
+            <state vertical-scroll-proportion="-33.59375">
+              <caret line="443" column="19" selection-start-line="443" selection-start-column="19" selection-end-line="443" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -54,17 +54,21 @@
       <file leaf-file-name="clustergrammer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/clustergrammer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5133991">
-              <caret line="274" column="36" selection-start-line="274" selection-start-column="36" selection-end-line="274" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.7207334">
+              <caret line="363" column="40" selection-start-line="363" selection-start-column="40" selection-end-line="363" selection-end-column="40" />
               <folding>
                 <element signature="e#5309#5443#0" expanded="false" />
-                <element signature="e#5532#6491#0" expanded="false" />
                 <element signature="e#5719#5852#0" expanded="false" />
                 <element signature="e#7310#7539#0" expanded="false" />
                 <element signature="e#7698#7866#0" expanded="false" />
+                <element signature="e#8052#8140#0" expanded="false" />
                 <element signature="e#8438#8547#0" expanded="false" />
                 <element signature="e#8644#8753#0" expanded="false" />
-                <element signature="e#15313#16726#0" expanded="false" />
+                <element signature="e#14829#15796#0" expanded="false" />
+                <element signature="e#15838#17336#0" expanded="false" />
+                <element signature="e#15913#17326#0" expanded="false" />
+                <element signature="e#17378#17660#0" expanded="false" />
+                <element signature="e#19961#20410#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -237,7 +241,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13263889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -271,7 +275,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/clustergrammer.js</url>
+          <line>356</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -347,14 +358,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mult_view.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="434.41177">
-          <caret line="0" column="79187" selection-start-line="0" selection-start-column="79182" selection-end-line="0" selection-end-column="79187" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -363,35 +366,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/load_clustergram.js">
+    <entry file="file://$PROJECT_DIR$/mult_view.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="0" column="79733" selection-start-line="0" selection-start-column="79729" selection-end-line="0" selection-end-column="79733" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mult_cats.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.515625">
-          <caret line="441" column="8" selection-start-line="441" selection-start-column="3" selection-end-line="441" selection-end-column="8" />
+        <state vertical-scroll-proportion="-33.59375">
+          <caret line="443" column="19" selection-start-line="443" selection-start-column="19" selection-end-line="443" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/load_clustergram.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.36666667">
+          <caret line="66" column="27" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clustergrammer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5133991">
-          <caret line="274" column="36" selection-start-line="274" selection-start-column="36" selection-end-line="274" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.7207334">
+          <caret line="363" column="40" selection-start-line="363" selection-start-column="40" selection-end-line="363" selection-end-column="40" />
           <folding>
             <element signature="e#5309#5443#0" expanded="false" />
-            <element signature="e#5532#6491#0" expanded="false" />
             <element signature="e#5719#5852#0" expanded="false" />
             <element signature="e#7310#7539#0" expanded="false" />
             <element signature="e#7698#7866#0" expanded="false" />
+            <element signature="e#8052#8140#0" expanded="false" />
             <element signature="e#8438#8547#0" expanded="false" />
             <element signature="e#8644#8753#0" expanded="false" />
-            <element signature="e#15313#16726#0" expanded="false" />
+            <element signature="e#14829#15796#0" expanded="false" />
+            <element signature="e#15838#17336#0" expanded="false" />
+            <element signature="e#15913#17326#0" expanded="false" />
+            <element signature="e#17378#17660#0" expanded="false" />
+            <element signature="e#19961#20410#0" expanded="false" />
           </folding>
         </state>
       </provider>
