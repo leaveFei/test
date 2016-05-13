@@ -68,10 +68,11 @@ var Clustergrammer =
 	  // visualize based on config object
 	  // handle user events
 
-	  // consume and validate user arguments, produce configuration object
+	  // consume and validate user arguments, produce configuration object 有效化用户参数 生成配置对象
 	  var config = make_config(args);
 
-	  // make visualization parameters using configuration object
+	  // make visualization parameters using configuration object 利用配置对象可视化参数
+		//console.log(config);
 	  var params = make_params(config);
 
 	  var cgm = {};
@@ -119,7 +120,7 @@ var Clustergrammer =
 		module.exports = Clustergrammer;
 
 /***/ },
-/* 1 */
+/* 1 */    ////2 3 4 5 6 7 8 9在1中调用
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -239,7 +240,6 @@ var Clustergrammer =
 	  // super-row/col labels
 		//args.row_label和args.col_label未定义 所以下列代码不执行
 	  if (!utils.is_undefined(args.row_label) && !utils.is_undefined(args.col_label)) {
-		  console.log("haha");
 	    config.super_labels = true;
 	    config.super = {};
 	    config.super.row = args.row_label;
@@ -357,21 +357,20 @@ var Clustergrammer =
 	  if (config.show_categories.col) {//存在cat-时存为true
 	    // generate a dictionary of columns in each category
 	    config.cat_dict = {};
-	    col_nodes.forEach(function (d) {
-
+	    col_nodes.forEach(function (d) {//col_nodes即为network_data.col_nodes
 	      // initialize array for each category
-	      if (!utils.has(config.cat_dict, d.cat)) {
+	      if (!utils.has(config.cat_dict, d.cat)) {//判断config.cat_dict中是否含有d.cat属性
 	        config.cat_dict[d.cat] = [];
 	      }
 	      // add column name to category array
-	      config.cat_dict[d.cat].push(d.name);
+	      config.cat_dict[d.cat].push(d.name);//d.name : cn 1 cn 2
 	    });
 	  }
 
 	  if (utils.has(config.network_data.links[0], 'value_orig')) {
 	    config.keep_orig = true;
 	  } else {
-	    config.keep_orig = false;
+	    config.keep_orig = false;//执行该列代码
 	  }
 
 	  return config;
@@ -399,7 +398,7 @@ var Clustergrammer =
 	  /* Returns whether or not an object has a certain property.
 	   */
 	  has: function has(obj, key) {
-	    return obj != null && hasOwnProperty.call(obj, key);
+	    return obj != null && hasOwnProperty.call(obj, key);//hasOwnProperty判断一个对象是否包含自定义属性
 	  },
 
 	  /* Returns true if the object is undefined.
@@ -579,7 +578,7 @@ var Clustergrammer =
 		};
 
 /***/ },
-/* 7 */
+/* 7 */ //设置默认值
 /***/ function(module, exports) {
 
 	'use strict';
@@ -699,7 +698,7 @@ var Clustergrammer =
 		};
 
 /***/ },
-/* 10 */
+/* 10 */  ///10调用模块 (11) (14)(16)(17)(18)(19)(20)(21)(23)(24)(25)(26)(27)(42)(43)(5)
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -724,17 +723,19 @@ var Clustergrammer =
 	var get_available_filters = __webpack_require__(5);
 
 	/* 
-	Params: calculates the size of all the visualization elements in the
+	Params: calculates the size of all the visualization elements in the 计算所有可视化元素的大小
 	clustergram.
 	 */
 
-	module.exports = function make_params(input_config) {
-
-	  var config = $.extend(true, {}, input_config);
+	module.exports = function make_params(input_config) {//input_config 传入的参数是config
+	//console.log(input_config);
+	  var config = $.extend(true, {}, input_config);//第一个参数为true 则为深度拷贝 将各个对象合并返回值赋值给config
+		//console.log(config);
 	  var params = config;
 
-	  // when pre-loading the visualization using a view
-	  if (params.ini_view !== null) {
+	  // when pre-loading the visualization using a view使用视图预加载可视化
+		//默认为numm 所以不执行下列代码
+	  if (params.ini_view !== null) {//默认为null
 
 	    var requested_view = params.ini_view;
 
@@ -1143,8 +1144,8 @@ var Clustergrammer =
 	module.exports = function set_label_params(config, network_data) {
 
 	  var labels = {};
-	  labels.super_label_scale = config.super_label_scale;
-	  labels.super_labels = config.super_labels;
+	  labels.super_label_scale = config.super_label_scale;//默认设置为1
+	  labels.super_labels = config.super_labels;//false
 	  labels.super_label_fs = 13.8;
 
 	  if (labels.super_labels) {
@@ -1153,17 +1154,20 @@ var Clustergrammer =
 	    labels.super.col = config.super.col;
 	  }
 
-	  labels.show_label_tooltips = config.show_label_tooltips;
+	  labels.show_label_tooltips = config.show_label_tooltips;//true
 
 	  labels.row_max_char = _.max(network_data.row_nodes, function (inst) {
 	    return inst.name.length;
-	  }).name.length;
+	  }).name.length;//name的最长节点长度
+		/*console.log(_.max(network_data.row_nodes, function (inst) {
+			return inst.name.length;
+		}));*///返回节点对象
 
 	  labels.col_max_char = _.max(network_data.col_nodes, function (inst) {
 	    return inst.name.length;
 	  }).name.length;
 
-	  labels.max_allow_fs = config.max_allow_fs;
+	  labels.max_allow_fs = config.max_allow_fs;//20
 
 	  return labels;
 		};
@@ -1181,22 +1185,24 @@ var Clustergrammer =
 
 	  var viz = {};
 
-	  viz.root = config.root;
+	  viz.root = config.root;//#container-id-1
+		//console.log(config.root);
 	  viz.viz_wrapper = config.root + ' .viz_wrapper';
-	  viz.do_zoom = config.do_zoom;
-	  viz.background_color = config.background_color;
-	  viz.super_border_color = config.super_border_color;
+	  viz.do_zoom = config.do_zoom;//true
+	  viz.background_color = config.background_color;//背景颜色'FFFFFF'
+	  viz.super_border_color = config.super_border_color;//'#F5F5F5'
 	  viz.outer_margins = config.outer_margins;
-	  viz.is_expand = config.ini_expand;
-	  viz.grey_border_width = config.grey_border_width;
-	  viz.show_dendrogram = config.show_dendrogram;
-	  viz.tile_click_hlight = config.tile_click_hlight;
-	  viz.inst_order = config.inst_order;
-	  viz.expand_button = config.expand_button;
+	  viz.is_expand = config.ini_expand;//false
+	  viz.grey_border_width = config.grey_border_width;//2
+	  viz.show_dendrogram = config.show_dendrogram;//判断是否包含group属性结果 本例为true
+	  viz.tile_click_hlight = config.tile_click_hlight;//false
+	  viz.inst_order = config.inst_order;//col:"clust" row:"clust"
+		//console.log(config.inst_order);
+	  viz.expand_button = config.expand_button;//true
 	  viz.all_cats = config.all_cats;
 	  viz.cat_colors = config.cat_colors;
 	  viz.cat_names = config.cat_names;
-	  viz.sim_mat = config.sim_mat;
+	  viz.sim_mat = config.sim_mat;//检验行数是否等于列数的结果 //本例为false
 
 	  viz.viz_svg = viz.viz_wrapper + ' .viz_svg';
 
@@ -1210,7 +1216,8 @@ var Clustergrammer =
 	    config.group_level = {};
 	  }
 
-	  viz.resize = config.resize;
+	  viz.resize = config.resize;//默认为true
+		///不包含size 执行else
 	  if (utils.has(config, 'size')) {
 	    viz.fixed_size = config.size;
 	  } else {
